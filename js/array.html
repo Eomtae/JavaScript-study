@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="result">
+        10+20+30 =
+    </div>
+
+
+
+    <div class="self">
+        <p>html(60), css(90), js(20)</p>
+        <p>총점 = </p>
+        <p>평균 = </p>
+        <p>판정 = </p>             <!--60점 이상일 경우 '합격 or 불합격'-->
+    </div>
+
+    <script>
+        // let array = new Array();
+        // let array = [];
+        let array = [10,20,30];
+        let sum = 0;
+        let num20;
+
+        //반복문
+        // array.length => array안에 있는 숫자들의 수를 자동으로 지정
+
+        for(let i=0; i < array.length; i++){
+            sum += array[i];
+            //숫자 => let i=0;
+            //숫자 증감(++) => i++
+            // 반복 횟수 =>i > 3
+            if(array[i]==20){
+                num20 = array[i]
+        } 
+    }
+    
+
+        
+
+        const elDiv= document.querySelector('.result');
+        elDiv.textContent += sum +','+ num20
+        // elResult.textContent += `,${num20}`;
+
+        // '아름' +AA+ '금수강산'+ BB+'시간입니다..';
+        // `아름AA금수강산BB시간입니다..`;
+
+        
+        //self
+        const elTotal = document.querySelector('.self > p:nth-child(2)');
+        const elAvg = document.querySelector('.self > p:nth-child(3)');
+        const elCox = document.querySelector('.self > p:nth-child(4)');
+
+        let sClass = [60,90,20];
+        avg= avg.toFixed(2); // 반올림
+        avg=Math.round(avg); // 반올림
+        // grend= (avg > 60) ? '합격' : '불합격'
+        
+        const total = sClass[0] + sClass[1] + sClass[2];
+        console.log(total);
+        elTotal.textContent += (total);
+
+        const avg = total / 3;
+        console.log(avg);
+        elAvg.textContent += (avg);
+
+        if(avg > 60){
+           elCox.textContent += '합격'
+        }else{
+            elCox.textContent +='불합격'
+        }
+
+
+
+
+      
+     
+
+
+        
+               
+
+
+        
+
+
+
+        
+        
+    </script>
+</body>
+</html>

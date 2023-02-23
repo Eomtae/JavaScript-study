@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스크롤 업,다운</title>
+</head>
+<style>
+    p{
+        text-align: center;
+        font-size: 10rem;
+        padding:300px 0
+    }
+    p:nth-child(even){
+        background-color: #ddd;
+    }
+</style>
+<body style="height:5000px;margin:0">
+
+    <article>
+        <button>0</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+    </article>
+    <div>
+        <p>0</p>
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+        <p>5</p>
+    </div>
+    <script>
+
+        let pos = {y:0,y2:0,state:true}
+        let play;
+        let idx = 0;
+        let tagValue;
+
+        const elPtag = document.querySelectorAll('p');
+
+        window.addEventListener('scroll',function(){
+            
+            pos.y = window.pageYOffset;
+            pos.state = (pos.y > pos.y2) ? true : false;
+            // if(pos.y > pos.y2){
+            //     pos.state = true;
+            // } else{
+            //     pos.state = false;
+
+            // }
+            
+            // (pos.y > pos.y2) ? pos.state=true : pos.state=false; 두줄 모두 같은 방법
+            pos.y2 = pos.y
+
+             clearTimeout(play);
+              play = setTimeout(function(){
+                if(pos.state){
+                    idx++;
+                    tagValue = 'red';
+                }else{
+                    idx--;
+                    tagValue = 'black';
+
+                }
+            },100)
+            
+            // elPtag[idx].style.color = tagValue;
+
+              //콘텐츠가 하단에 위치하면 명령 전달 -----중요 ----- 
+              let offset = elPtag[idx].offsetTop - window.innerHeight;
+              if(offset < window.pageYOffset){
+                console.log('콘텐츠'+idx)
+              }
+
+        })
+
+        const btn = document.querySelectorAll('button')
+        btn.forEach(function(el,key){
+            el.addEventListener('click',function(){
+                 // 스크롤 이동
+                window.scrollTo({
+                    left:0,
+                    top:elPtag[key].offsetTop,
+                    behavior:'smooth'
+                })
+            })
+        })
+
+        // el.offsetTop -->                 콘텐츠 위치 값
+        // document.body.scrollHeight -->   문서전체 높이값
+        // window.pageYOffset -->           스크롤값
+        // scrollTo(); -->                  스크롤 위치 이동
+    </script>
+</body>
+</html>

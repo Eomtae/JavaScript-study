@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <article>
+      <h2>약관동의</h2>
+      <form id="form_join" action="form-join.html">
+        <ul>
+          <li>
+            <input id="terms" type="checkbox" />
+            <label for="terms"></label>
+            <!--꼭 꼭 알아두어야할것!!!!! -->
+            이용약관 동의
+          </li>
+
+          <li>
+            <input id="privacy" type="checkbox" />
+            <label for="privacy"></label>
+            개인정보수집 동의
+          </li>
+
+          <li>
+            <input id="all" type="checkbox" />
+            <label for="all"></label>
+            전체 동의
+          </li>
+
+          <li>
+            <input type="submit" value="확인" />
+          </li>
+        </ul>
+      </form>
+    </article>
+
+    <script>
+      //화살표 함수 안에서 this 사용 불가
+      // if (all.checked) {
+      //   terms.checked = true;
+      // } else {
+      //   terms.checked = false;
+      // }
+      //-> 약관동의, 수집동의 상태를 일치
+      // terms.checked = all.checked;
+      // privacy.checked = all.checked;
+      // 전체동의 -> 약관동의, 개인정보 동의 상태 일치
+      // 약관동의,개인정도수집동의 2개 체크시 전체동의 활성화
+      window.addEventListener("click", (e) => {
+        if (e.target.id == "all") {
+          terms.checked = all.checked;
+          privacy.checked = all.checked;
+        }
+        if (terms.checked && privacy.checked) {
+          all.checked = true;
+        } else {
+          all.checked = false;
+        }
+
+        console.log(e.target.id);
+      });
+
+      window.addEventListener("submit", function (e) {
+        e.preventDefault();
+        //동의 체크 상태(true,false)
+        if (!terms.checked) {
+          alert("이용약관동의 해주세요");
+          return; //명령 종료(뒤쪽 실행 X)
+        }
+        if (!privacy.checked) {
+          alert("개인정보 수집동의 해주세요");
+          return;
+        }
+
+        form_join.submit();
+      });
+    </script>
+
+    <style>
+      input:not([type="submit"]) {
+        display: none;
+      }
+      label {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        border-radius: 50%;
+        background-color: #ddd;
+        text-align: center;
+      }
+      label::after {
+        content: "v";
+        font-size: 12px;
+        vertical-align: top;
+      }
+      input:checked + label {
+        background-color: #f00;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Math.ceil()// 소숫점 올림
+        // Math.round()//소숫점 5이상일 때 반올림
+        // Math.floor()// 숫자와 상관없이 소숫점 버림
+
+        function ranFun(n){
+           return Math.ceil(Math.random() * n) // --------중요
+        }
+        
+        let data = [
+            {src:"./img/01.jpg"},
+            {src:"./img/02.jpg"},
+            {src:"./img/03.jpg"},
+            {src:"./img/04.jpg"},
+            {src:"./img/05.jpg"},
+            {src:"./img/06.jpg"},
+            {src:"./img/07.jpg"},
+            {src:"./img/08.jpg"},
+            {src:"./img/09.jpg"},
+            {src:"./img/10.jpg"}
+        ];
+        // console.log(data[0].src); .src는 값 도출
+       
+        let URL = ranFun(10)-1;
+ 
+        let elImg = document.createElement('img');
+
+        
+        elImg.src = data[URL].src;
+        document.body.prepend(elImg);
+
+            //append() : 요소 뒤쪽에 추가(:after와 동일)
+            //prepend() : 요소 앞쪽에 추가
+      
+            
+        const elPhoto = document.querySelector("img");
+        let inter;
+        elPhoto.onmousemove = function(){
+
+            clearTimeout(inter);
+
+            inter = setTimeout(function(){
+            let URL = ranFun(10)-1;
+            elPhoto.src = data[URL].src;
+        },1000)
+    }
+
+        
+
+    
+        
+            
+        
+            
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <article class="faq">
+      <h2>FAQ</h2>
+      <ul>
+        <li>
+          Q.질문1
+          <div>A.답변1</div>
+        </li>
+        <li>
+          Q.질문2
+          <div>A.답변2</div>
+        </li>
+        <li>
+          Q.질문3
+          <div>A.답변3</div>
+        </li>
+        <li>
+          Q.질문4
+          <div>A.답변4</div>
+        </li>
+        <li>
+          Q.질문5
+          <div>A.답변5</div>
+        </li>
+      </ul>
+    </article>
+
+    <style>
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      .faq {
+        width: 500px;
+        margin: 100px auto;
+      }
+      .faq li {
+        border-top: 1px solid #000;
+        padding: 20px;
+        position: relative;
+      }
+      .faq li div {
+        background: #ddd;
+        padding: 20px;
+        display: none;
+      }
+      .faq li.on div {
+        display: block;
+      }
+      .faq li::after{
+        content:'>';
+        position:absolute;
+        right:0;
+        top:50%;
+      }
+      .faq li.on::after{
+        content: '<';
+      }
+    </style>
+
+    <script>
+      const elFaq = document.querySelectorAll(".faq li");
+        
+      let i = 0;
+
+      elFaq.forEach(function (el, key) {
+        el.onclick = function () {
+            
+            if(el.classList.contains("on") !=true){ //    => !el.classList.contians를 누르게 되면 true,false 조건문 성립
+                                                     //el.classList.contains와 true가 같지 않을 때만 밑에 remove실행
+            elFaq[i].classList.remove("on");
+        }
+            el.classList.toggle('on');
+            
+          i = key;
+        };
+      });
+                // elFaq.forEach(function(i){
+            //     if(el.classList.contains("on") ){
+            //         el.onclick = function(){
+            //             el.classList.toggle("on");
+            //         }
+            //     }
+            // })    
+      
+      
+     
+    </script>
+  </body>
+</html>

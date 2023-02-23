@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <article >
+        <h2>block,none</h2>
+      <button id="ex_btn">버튼</button>
+      <div id="ex_con">
+        contents
+    </div>
+
+    <style>
+      #ex_con{padding:60px;border:2px solid #000;
+              display: none;}
+      #ex_con.on{padding:60px;border:2px solid #000;
+              display: block;}
+    </style>
+    <script>
+        // id가 있다면 querySelector없이도 사용 가능
+        // let i = 0;
+      
+        ex_btn.onclick=function(){
+            //클래스,숫자
+            //클래스를 넣으면 ~ display block, 클래스를 뺴면 ~display none이런식으로
+            // i++;
+            // i%2 ==0
+            // contains() true,false
+
+            ex_con.classList.toggle('on');
+
+            let blen = ex_con.classList.contains('on');
+
+            // blen = true/false
+            if(blen){
+            ex_btn.textContent = '닫기';
+          }else{
+            ex_btn.textContent = '열기';
+          }
+            
+            // let blen = ex_btn.classList.contains('on')
+            
+    //         if(blen){
+    //         ex_btn.classList.add('on');
+    //     }else{
+    //         ex_btn.classList.remove('on');
+    // }
+  }
+
+
+    </script>
+
+      <!-- 스타일 추가 , 삭제 , 수정, 
+      명령 발생 시점(이벤트)
+      element.classList.contains('active');
+       -> true.false반환 --조건문에서 사용  -->
+
+
+
+
+    </article>
+
+    <article class="tab">
+      <div>
+        <button> tab01 </button>
+        <button> tab02 </button>
+        <button> tab03 </button>
+      </div>
+      <div class="content">
+        <div>content 01</div>
+        <div>content 02</div>
+        <div>content 03</div>
+      </div>
+    </article>
+
+    <style>
+      .tab{
+        margin:200px 0;
+        width:500px;
+      }
+      .tab button.on{
+        background-color: #000;color:#fff;
+      }
+      .tab .content{
+        min-height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #000;
+      }
+      .tab .content > div{
+        font-size: 3rem;
+        display: none;
+      }
+      .tab .content > div.on{
+        display:block;
+      }
+
+    </style>
+
+    <script>
+      const elBtn = document.querySelectorAll('.tab button'),
+            elContent = document.querySelectorAll('.content div');
+            let idx = 0;
+            // elBtn.classList.add('on');
+            // elBtn.classList.remove('on');
+
+            // elContent.classList.add('on');
+            // elContent.classList.remove('on');
+
+
+
+
+            
+            elBtn.forEach(function(btn,key){
+              
+              btn.onclick = function(){
+                
+                // elBtn[key].classList.toggle('on');
+                // elContent[key].classList.toggle('on');
+
+                // if(key == 1){
+                //   elBtn[0].classList.remove('on');
+                // elContent[0].classList.remove('on');
+                // elBtn[2].classList.remove('on');
+                // elContent[2].classList.remove('on');
+                // };
+                // if(key == 2){
+                //   elBtn[1].classList.remove('on');
+                // elContent[1].classList.remove('on');
+                // elBtn[0].classList.remove('on');
+                // elContent[0].classList.remove('on')
+                // };
+                // if(key == 0){
+                //   elBtn[1].classList.remove('on');
+                // elContent[1].classList.remove('on');
+                // elBtn[2].classList.remove('on');
+                // elContent[2].classList.remove('on')
+                // };
+                
+                //-------------------------- 선생님 방식----------------
+                
+                // 모든 버튼과 콘텐츠 on클래스 삭제
+                elBtn[idx].classList.remove('on');
+                  elContent[idx].classList.remove('on');
+                
+                  //클릭한 버튼은 클래스 추가
+                  
+                elBtn[key].classList.add('on');
+                elContent[key].classList.add('on');
+                idx = key;
+              }
+            });
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

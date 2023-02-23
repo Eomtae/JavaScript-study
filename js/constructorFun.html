@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!--     <div class="btn">
+      <button>1</button>
+      <button>1</button>
+      <button>1</button>
+      <button>1</button>
+      <button>1</button>
+      <button>1</button>
+      <button>1</button>
+      <button>1</button>
+      <button>1</button>
+      <button>1</button>
+    </div> -->
+
+    <div>
+      <button>0</button>
+      <button>0</button>
+      <button>0</button>
+    </div>
+
+    <script>
+      function Test(n) {
+        this.name = n;
+        // this.print = function () {
+        //   return ++this.name;
+        // };
+      }
+      Test.prototype.print = function () {
+        return ++this.name;
+      };
+
+      let t1 = [];
+      for (let i = 0; i < 10; i++) {
+        t1.push(new Test(0));
+      }
+
+      const btn = document.querySelectorAll("button");
+      btn.forEach((b, k) => {
+        b.onclick = () => {
+          b.textContent = [k].prink();
+        };
+      });
+
+      class Test2 {
+        constructor(n) {
+          this.num = n;
+          console.log("aaa");
+        }
+        print() {
+          return ++this.num;
+        }
+      }
+      let t2 = new Test2(0);
+      console.log(t2);
+
+      ////처음만든 버튼태그 -------------------
+      /*       const btn = document.querySelectorAll("button");
+      btn.forEach(function (vvv, key) {
+        let num = 1;
+        vvv.onclick = function () {
+          num++;
+          vvv.innerHTML = num;
+        };
+      }); */
+      // 이것도 가능
+      // const btns = document.querySelectorAll("button");
+      // btns.forEach((btn, key) => {
+      //   let i = 1;
+      //   btn.addEventListener("click", (e) => {
+      //     e.target.innerHTML = i++;
+      //     console.log(e.target);
+      //   });
+      // });
+    </script>
+  </body>
+</html>

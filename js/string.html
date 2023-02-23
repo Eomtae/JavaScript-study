@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열</title>
+</head>
+<body>
+    <script>
+        let str1 = "javascript";
+
+        // let arry = [10,20,30,40,50,60,70,80];
+        
+        console.log(
+            str1.replace('s','T'),//해당 문자를 변환
+            str1.split('s'),//해당 문자를 기준으로 분리하여 배열 => str1=['java','cript'] []안에 해당 배열 숫자를 쓰면 그 해당하는 배열만 나옴
+            str1.slice(4,9),// start index, last index값으로 문자를 잘라냄
+            str1.toUpperCase(), //toUpperCase, toLowerCase 대문자,소문자 출력
+            str1.match('Z'),//문자가 존재하지 않을 시 null or array로 값 출력
+            // arry.splice(4,2,100)// index, length, value --> index값 앞쪽에 value값이 추가가 됨
+                                // 만약 해당하는 index번호를 지우고 value값을 넣고 싶다면 가운데에 있는 length값을 바꾸면 됨.
+        );
+
+        console.log(
+            str1
+        )
+
+        // for(let i=0; i < str1.length; i++){
+        //     console.log(str1[i])
+        // } -- 글자가 쭉 나오는 것
+
+        // console.log(str1.length) -- 글자가 몇 글자인지 나오게 하는 것
+        // substr => 해당 인덱스 번호에 위치한 문자부터 나오게 하는 것
+        console.log(
+            str1[0],
+            str1.charAt(0), //str1[0]과 동일 둘중에 하나만 쓰면 됨
+            str1.substr(4,2),// 첫번째 숫자는 index(문자의 자리), 두번째 숫자는 length(문자의 길이)// str1.substr(str1.indexOf('s'),2)와 같음
+            str1.indexOf('s'), // 좌측에서 우측으로 s가 위치한 index번호의 값 출력하는 것 
+            str1.lastIndexOf('a'),//우측에서 좌측으로 역방향으로 index번호의 값 출력
+            str1.indexOf('script'), //출발지점에서 찾는것 str1.indexOf('s')와 값 동일
+            str1.indexOf('a',2),// index 2번째 부터 검색 --여기서는 v부터 검색했더니 a는 3번지점에 있어서 값이 3이 나옴
+        )
+    
+            
+    
+    
+    
+    
+    </script>
+
+
+    <div class="str">
+        <img src ="./img/01.jpg">
+    </div>
+
+    <script>
+        const elStr = document.querySelector('.str img')
+
+        let imgUrl = elStr.getAttribute('src'); // ./img/01.jpg
+        let reUrl =   imgUrl.replace('01','02');// ./img/02.jpg
+        let thUrl =   imgUrl.replace('01','03');// .img/03.jpg
+        // elStr.src = reUrl;
+        elStr.setAttribute('src',reUrl);
+        elStr.setAttribute('src', thUrl);
+
+        //문자 구간 선택
+        // ./img/02.jpg
+        let sIdx = imgUrl.lastIndexOf('/');
+        let eIdx = imgUrl.lastIndexOf('.');
+        let nIdx = imgUrl.slice(sIdx+1,eIdx);
+         
+        let III = imgUrl.replace(nIdx,'03')
+        
+        elStr.setAttribute('src',thUrl)
+        console.log(
+            
+        );
+        // let sIdx = imgUrl.lastIndexOf('/');
+        // let eIdx = imgUrl.lastIndexOf('.');
+        // let nIdx = imgUrl.slice(sIdx+1,eIdx);
+        
+        // let III = imgUrl.replace(nIdx,'03')
+        
+        //  //html 문서안에 있는 이미지태그 src값을 가져온다.
+        //  let thUrl =   elStr.getAttribute('src');
+        
+        // //가져온 문자에서 끝에서부터 /문자를 찾는다.
+        // let sIdx = imgUrl.lastIndexOf('/');
+        // //가져온 문자에서 끝에서부터 문자를 찾는다.
+        // let eIdx = imgUrl.lastIndexOf('.');
+        // //가져온 문자 /에서 .사이의 문자를 잘라온다.
+        // let nIdx = imgUrl.slice(sIdx+1,eIdx)
+        // //slice한 이미지명을 03으로 바꾼다.
+        // let III = imgUrl.replace(nIdx,'03')
+        // //html문서 안에 이미지 src값을 수정한다.
+
+        
+        //브라우저 URL값 (가져오기)
+        // location.hash(해시문자)
+        // location.href(전체주소)
+        // location.pathname(도메인 제외한 문자)
+        
+        //변경
+        // location.href = 'naver.com'
+
+        let url = location.href;
+        // 'http://127.0.0.1:5500/js/string.html'
+        
+        let idx = url.lastIndexOf('/')+1;
+        
+        console.log( 
+            url.substr(idx),
+            url.slice(idx)
+            ) ;
+
+        // console.log(
+        // elStr.src,
+        // elStr.getAttribute('src')//해당 값을 가져오는 방식
+        // );
+
+        // elStr.src='';
+        // elStr.setAttribute('src', '02.jpg') -->수정 시 사용 방법 'src'를 "02.jpg"로 바꾸는 것
+        // getAttribute -> setAttribute로 수정
+        
+    </script>
+</body>
+</html>

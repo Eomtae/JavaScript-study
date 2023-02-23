@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items> <!--자기 임의로 설정-->
+    <item>
+        <title>이미지 01</title>
+        <url>../js/img/01.jpg</url>
+        <detail>
+            어쩌구저쩌구...01
+        </detail>
+    </item>
+    <item>
+        <title>이미지 02</title>
+        <url>../js/img/02.jpg</url>
+        <detail>어쩌구저쩌구...02</detail>
+    </item>
+    <item>
+        <title>이미지 03</title>
+        <url>../js/img/03.jpg</url>
+        <detail>어쩌구저쩌구...03</detail>
+    </item>
+</items>

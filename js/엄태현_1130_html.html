@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>주사위 게임</title>
+  </head>
+  <body>
+    <div class="dice">주사위를 굴려봐요<br /></div>
+    <img src="" alt="">
+    <button>굴리기</button>
+    <style>
+        img{
+            width:100px;
+            height:100px;
+            transform: rotateZ(0deg);
+        }
+    </style>
+    <script>
+
+        let btn = document.querySelector('button'); //1
+        let img = document.querySelector('img'); //6
+        const elDice = [ //4
+            {src:"./img/dice-1.jpg"},
+            {src:"./img/dice-2.jpg"},
+            {src:"./img/dice-3.jpg"},
+            {src:"./img/dice-4.jpg"},
+            {src:"./img/dice-5.jpg"},
+            {src:"./img/dice-6.jpg"}
+    ]
+        
+        btn.onclick = function(){ //2
+            // console.log(); //3
+           
+        let ran = Math.floor(Math.random() * 6) //5
+        // let ran = prompt('1~6')-1;
+           img.src = elDice[ran].src //7
+          //  img.style.transform = 'rotateZ(180deg)'
+        }
+        
+
+        
+            
+
+    </script>
+  </body>
+</html>
